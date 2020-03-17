@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Simple Application</string>
+    <string name="app_title">Hola</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login</string>
+    <string name="password_again">Password again</string>
+    <string name="sign_up">Sign up</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
