@@ -5,13 +5,13 @@
         android:icon="@drawable/ic_dashboard_black_24"
         android:title="@string/dashboard" />
     <item
-        android:id="@+id/navigation_stock"
-        android:icon="@drawable/ic_stock_black_24"
-        android:title="@string/stock" />
-    <item
         android:id="@+id/navigation_transaction"
         android:icon="@drawable/ic_transaction_black_24"
         android:title="@string/transaction" />
+    <item
+        android:id="@+id/navigation_stock"
+        android:icon="@drawable/ic_stock_black_24"
+        android:title="@string/stock" />
     <item
         android:id="@+id/navigation_partner"
         android:icon="@drawable/ic_partner_black_24"

@@ -21,6 +21,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -35,4 +40,7 @@ dependencies {
 
     // ui
     implementation 'com.google.android.material:material:1.1.0'
+
+    // table
+    implementation 'com.evrencoskun.library:tableview:0.8.9'
 }
