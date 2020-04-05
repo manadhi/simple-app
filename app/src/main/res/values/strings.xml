@@ -14,4 +14,14 @@
     <string name="transaction">Transaction</string>
     <string name="partner">Partner</string>
     <string name="account">Account</string>
+    <string name="empty_username">please input username</string>
+    <string name="minimum_username">"username minimum "</string>
+    <string name="character">" character"</string>
+    <string name="empty_password">"please input password"</string>
+    <string name="minimum_password">"password minimum "</string>
+    <string name="empty_confirm_password">"please input password again"</string>
+    <string name="password_missmatch">"password missmatch"</string>
+    <string name="empty_account_type">"please select account type"</string>
+    <string name="success_create_account">"account created"</string>
+    <string name="fail_create_account">"create account failed"</string>
 </resources>

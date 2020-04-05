@@ -43,4 +43,8 @@ dependencies {
 
     // table
     implementation 'com.evrencoskun.library:tableview:0.8.9'
+
+    // network
+    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
 }
