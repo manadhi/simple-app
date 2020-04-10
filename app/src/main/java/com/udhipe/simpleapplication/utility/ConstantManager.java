@@ -1,7 +1,8 @@
 package com.udhipe.simpleapplication.utility;
 
 public class ConstantManager {
-    public static final String BASE_URL = "http://35.185.235.231/api/";
+/*    public static final String BASE_URL = "http://35.185.235.231/api/";*/
+    public static final String BASE_URL = "https://api.authskull.site/dev-iam/";
     final public static String[] accountTypeList = new String[]{"Agent Reguler", "Agent Premium",
             "Agent Startup", "Reseller", "Merketer"};
     final public static int MINIMUM_CHARACTER_USERNAME = 3;

@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.udhipe.simpleapplication.R;
 import com.udhipe.simpleapplication.model.TransactionModel;
-import com.udhipe.simpleapplication.utility.RandomDateTime;
 
 import java.util.ArrayList;
 

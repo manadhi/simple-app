@@ -1,5 +1,7 @@
 package com.udhipe.simpleapplication.register;
 
+import android.util.Log;
+
 import com.udhipe.simpleapplication.utility.ConstantManager;
 
 import org.json.JSONObject;
@@ -95,6 +97,11 @@ public class RegisterPresenter implements RegisterContract.RegisterPresenter {
     }
 
     public void createAccount(int accountTypeCode) {
+
+        Log.d("CREATEEE", "username : " + username);
+        Log.d("CREATEEE", "password : " + password);
+        Log.d("CREATEEE", "accountTypeCode : " + accountTypeCode);
+
         interactor.createAccountData(username, password, accountTypeCode, new RegisterInteractor.Listener<JSONObject>() {
             @Override
             public void onSuccess(JSONObject data, String message) {
