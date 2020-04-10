@@ -38,9 +38,17 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
     @Override
     public void openPage(String page) {
+        Intent intent = new Intent();
+        switch (page) {
+            case ConstantManager.LOGIN:
+                intent = new Intent(getBaseContext(), LoginActivity.class);
+                break;
+        }
 
+        startActivity(intent);
     }
 
+    //TODO: need to simplify this method or make utility for info
     @Override
     public void showInfo(String infoCode) {
 
@@ -73,8 +81,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
             case ConstantManager.SUCCESS_CREATE_ACCOUNT:
                 message = getString(R.string.success_create_account);
                 break;
+            case ConstantManager.ACCOUNT_ALREADY_EXIST:
+                message = getString(R.string.account_already_exist);
+                break;
             case ConstantManager.FAIL_CREATE_ACCOUNT:
                 message = getString(R.string.fail_create_account);
+                break;
+            case ConstantManager.CONNECTION_PROBLEM:
+                message = getString(R.string.connection_problem);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + infoCode);
@@ -106,8 +120,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
 
     private void initializeListener() {
         btnLogin.setOnClickListener(v -> {
-            Intent intent = new Intent(getBaseContext(), LoginActivity.class);
-            startActivity(intent);
+            openPage(ConstantManager.LOGIN);
         });
 
         btnRegister.setOnClickListener(v -> {

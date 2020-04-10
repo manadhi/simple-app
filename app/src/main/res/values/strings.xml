@@ -24,4 +24,6 @@
     <string name="empty_account_type">"please select account type"</string>
     <string name="success_create_account">"account created"</string>
     <string name="fail_create_account">"create account failed"</string>
+    <string name="account_already_exist">"sorry, try another username"</string>
+    <string name="connection_problem">"please check your connection"</string>
 </resources>

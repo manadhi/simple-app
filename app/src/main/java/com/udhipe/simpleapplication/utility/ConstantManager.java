@@ -1,7 +1,7 @@
 package com.udhipe.simpleapplication.utility;
 
 public class ConstantManager {
-/*    public static final String BASE_URL = "http://35.185.235.231/api/";*/
+    /*    public static final String BASE_URL = "http://35.185.235.231/api/";*/
     public static final String BASE_URL = "https://api.authskull.site/dev-iam/";
     final public static String[] accountTypeList = new String[]{"Agent Reguler", "Agent Premium",
             "Agent Startup", "Reseller", "Merketer"};
@@ -13,6 +13,9 @@ public class ConstantManager {
     final public static String CONFIRM_PASSWORD = "confirmpassword";
     final public static String ACCOUNT_TYPE = "accounttype";
     final public static String ACCOUNT = "account";
+    final public static String EXIST = "exist";
+    final public static String LOGIN = "login";
+    final public static String CONNECTION = "connection";
     final public static String INFO_EMPTY_USERNAME = "F" + USERNAME + EMPTY;
     final public static String INFO_MINIMUM_USERNAME = "F" + USERNAME + MINIMUM_CHARACTER_USERNAME;
     final public static String INFO_EMPTY_PASSWORD = "F" + PASSWORD + EMPTY;
@@ -22,6 +25,8 @@ public class ConstantManager {
     final public static String INFO_EMPTY_ACCOUNT_TYPE = "F" + ACCOUNT_TYPE + EMPTY;
     final public static String SUCCESS_CREATE_ACCOUNT = "T" + ACCOUNT;
     final public static String FAIL_CREATE_ACCOUNT = "F" + ACCOUNT;
+    final public static String ACCOUNT_ALREADY_EXIST = "F" + ACCOUNT + EXIST;
+    final public static String CONNECTION_PROBLEM = "F" + CONNECTION;
     final public static int AGENT_REGULER = 2;
     final public static int AGENT_PREMIUM = 3;
     final public static int AGENT_STARTUP = 4;

@@ -105,12 +105,16 @@ public class RegisterPresenter implements RegisterContract.RegisterPresenter {
         interactor.createAccountData(username, password, accountTypeCode, new RegisterInteractor.Listener<JSONObject>() {
             @Override
             public void onSuccess(JSONObject data, String message) {
-                view.showInfo(ConstantManager.SUCCESS_CREATE_ACCOUNT);
+                view.showInfo(message);
+
+                if (message.matches(ConstantManager.SUCCESS_CREATE_ACCOUNT)) {
+                    view.openPage(ConstantManager.LOGIN);
+                }
             }
 
             @Override
             public void onError(String message) {
-                view.showInfo(ConstantManager.FAIL_CREATE_ACCOUNT);
+                view.showInfo(message);
             }
         });
     }

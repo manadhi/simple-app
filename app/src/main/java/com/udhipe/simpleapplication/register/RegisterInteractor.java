@@ -5,6 +5,7 @@ import android.util.Log;
 import com.udhipe.simpleapplication.model.User;
 import com.udhipe.simpleapplication.network.ApiClient;
 import com.udhipe.simpleapplication.network.ApiInterface;
+import com.udhipe.simpleapplication.utility.ConstantManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,13 +28,28 @@ public class RegisterInteractor implements RegisterContract.RegisterInteractor {
     @Override
     public void createAccountData(String username, String password, int accountType, Listener<JSONObject> listener) {
         try {
-
             User user = new User(username, password, accountType);
 
             Call<ResponseBody> postCreateAccount = apiInterface.createAccount(user);
             postCreateAccount.enqueue(new Callback<ResponseBody>() {
                 @Override
                 public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                    if (response.isSuccessful()) {
+                        if (response.code() == 201) {
+                            listener.onSuccess(null, ConstantManager.SUCCESS_CREATE_ACCOUNT);
+                        }
+                    } else {
+                        if (response.code() == 400) {
+                            try {
+                                if (response.errorBody().string().contains("Account already exist")) {
+                                    listener.onError(ConstantManager.ACCOUNT_ALREADY_EXIST);
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+/*
                     if (response != null) {
 
                         Log.d("CREATEEE", "response body : " + response.raw().toString());
@@ -64,6 +80,7 @@ public class RegisterInteractor implements RegisterContract.RegisterInteractor {
                     } else {
                         Log.d("CREATEEE", "response body : null");
                     }
+*/
 
 //                    listener.onSuccess(response.body(), response.headers().toString());
                 }
@@ -71,7 +88,10 @@ public class RegisterInteractor implements RegisterContract.RegisterInteractor {
                 @Override
                 public void onFailure(Call<ResponseBody> call, Throwable t) {
                     Log.d("CREATEEE", "onFailure : " + t.getMessage());
-//                    listener.onError(t.getMessage());
+
+                    if (t.getMessage().contains("Unable to resolve host")) {
+                        listener.onError(ConstantManager.CONNECTION_PROBLEM);
+                    }
                 }
             });
         } catch (Exception exception) {
