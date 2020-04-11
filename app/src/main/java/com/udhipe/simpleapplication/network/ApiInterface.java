@@ -18,13 +18,8 @@ public interface ApiInterface {
     @POST("accounts/register")
     Call<ResponseBody> createAccount(@Body User user);
 
-/*
-    @FormUrlEncoded
-    @POST("accounts/register")
-    Call<JSONObject> createAccount(@Field("username") String username,
-                                   @Field("password") String password,
-                                   @Field("account_type") int accountType);
-*/
+    @POST("auth/token")
+    Call<ResponseBody> getToken(@Body User user);
 
 
     @GET("admin/accounts")

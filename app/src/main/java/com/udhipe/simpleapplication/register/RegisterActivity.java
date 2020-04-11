@@ -24,14 +24,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     TextInputEditText edtPasswordAgain;
     AutoCompleteTextView dropDownAccountType;
 
-    RegisterPresenter registerPresenter;
+    RegisterPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        registerPresenter = new RegisterPresenter(this);
+        presenter = new RegisterPresenter(this);
 
         initializeView();
     }
@@ -124,7 +124,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
         });
 
         btnRegister.setOnClickListener(v -> {
-            registerPresenter.checkInput(edtUsername.getText().toString(),
+            presenter.checkInput(edtUsername.getText().toString(),
                     edtPassword.getText().toString(), edtPasswordAgain.getText().toString(),
                     dropDownAccountType.getText().toString());
         });

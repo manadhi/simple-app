@@ -15,7 +15,9 @@ public class ConstantManager {
     final public static String ACCOUNT = "account";
     final public static String EXIST = "exist";
     final public static String LOGIN = "login";
+    final public static String REGISTER = "register";
     final public static String CONNECTION = "connection";
+    final public static String DASHBOARD = "dashboard";
     final public static String INFO_EMPTY_USERNAME = "F" + USERNAME + EMPTY;
     final public static String INFO_MINIMUM_USERNAME = "F" + USERNAME + MINIMUM_CHARACTER_USERNAME;
     final public static String INFO_EMPTY_PASSWORD = "F" + PASSWORD + EMPTY;

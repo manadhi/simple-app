@@ -18,6 +18,7 @@ public class RegisterPresenter implements RegisterContract.RegisterPresenter {
 
     public RegisterPresenter(RegisterContract.RegisterView view) {
         this.view = view;
+        interactor = new RegisterInteractor();
     }
 
     @Override
@@ -26,7 +27,6 @@ public class RegisterPresenter implements RegisterContract.RegisterPresenter {
         this.password = password;
         this.confirmPassword = confirmPassword;
         this.accountType = accountType;
-        interactor = new RegisterInteractor();
 
         checkusername();
     }
