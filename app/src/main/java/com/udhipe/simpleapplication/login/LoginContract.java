@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public interface LoginContract {
 
     interface LoginView extends BaseContract.BaseView {
-
+        void saveAccountCredential(String token, String id);
     }
 
     interface LoginPresenter extends BaseContract.BasePresenter {

@@ -13,6 +13,7 @@ import com.udhipe.simpleapplication.R;
 import com.udhipe.simpleapplication.main.MainActivity;
 import com.udhipe.simpleapplication.register.RegisterActivity;
 import com.udhipe.simpleapplication.utility.ConstantManager;
+import com.udhipe.simpleapplication.utility.Preferences;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.LoginView {
 
@@ -31,6 +32,15 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
         presenter = new LoginPresenter(this);
 
         initializeView();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!(Preferences.getAccountToken(this).isEmpty())) {
+            openPage(ConstantManager.DASHBOARD);
+        }
     }
 
     @Override
@@ -105,4 +115,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
         });
     }
 
+    @Override
+    public void saveAccountCredential(String token, String id) {
+        Preferences.saveAccountToken(this, token);
+        Preferences.saveAccountId(this, id);
+    }
 }

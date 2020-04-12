@@ -13,7 +13,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.udhipe.simpleapplication.R;
 import com.udhipe.simpleapplication.login.LoginActivity;
+import com.udhipe.simpleapplication.main.MainActivity;
 import com.udhipe.simpleapplication.utility.ConstantManager;
+import com.udhipe.simpleapplication.utility.Preferences;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterContract.RegisterView {
 
@@ -37,11 +39,23 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (!(Preferences.getAccountToken(this).isEmpty())) {
+            openPage(ConstantManager.DASHBOARD);
+        }
+    }
+
+    @Override
     public void openPage(String page) {
         Intent intent = new Intent();
         switch (page) {
             case ConstantManager.LOGIN:
                 intent = new Intent(getBaseContext(), LoginActivity.class);
+                break;
+            case ConstantManager.DASHBOARD:
+                intent = new Intent(getBaseContext(), MainActivity.class);
                 break;
         }
 

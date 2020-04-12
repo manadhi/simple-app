@@ -4,19 +4,24 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.udhipe.simpleapplication.R;
 
+import com.udhipe.simpleapplication.login.LoginActivity;
 import com.udhipe.simpleapplication.main.account.AccountFragment;
 import com.udhipe.simpleapplication.main.dashboard.DashboardFragment;
 import com.udhipe.simpleapplication.main.partner.PartnerFragment;
 import com.udhipe.simpleapplication.main.stock.StockFragment;
 import com.udhipe.simpleapplication.main.transaction.TransactionFragment;
+import com.udhipe.simpleapplication.utility.ConstantManager;
+import com.udhipe.simpleapplication.utility.Preferences;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements
+        BottomNavigationView.OnNavigationItemSelectedListener, MainContract.MainView {
 
     BottomNavigationView bottomNavigationView;
 
@@ -29,6 +34,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         loadFragment(new DashboardFragment());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (Preferences.getAccountToken(this).isEmpty()) {
+            openPage(ConstantManager.LOGIN);
+        }
     }
 
     @Override
@@ -62,5 +76,23 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void openPage(String page) {
+        Intent intent = new Intent();
+
+        switch (page) {
+            case ConstantManager.LOGIN:
+                intent = new Intent(getBaseContext(), LoginActivity.class);
+                break;
+        }
+
+        startActivity(intent);
+    }
+
+    @Override
+    public void showInfo(String infoCode) {
+
     }
 }

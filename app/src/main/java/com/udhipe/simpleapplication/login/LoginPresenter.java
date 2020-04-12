@@ -63,6 +63,9 @@ public class LoginPresenter implements LoginContract.LoginPresenter {
 
                     Log.d("USERR", "user : " + user.toString());
 
+                    view.saveAccountCredential(data.getString("access_token"),
+                            data.getString("account_id"));
+
                     view.openPage(ConstantManager.DASHBOARD);
                 } catch (JSONException e) {
                     e.printStackTrace();
