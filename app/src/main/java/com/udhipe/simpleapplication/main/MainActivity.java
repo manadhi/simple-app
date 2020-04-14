@@ -13,6 +13,7 @@ import com.udhipe.simpleapplication.R;
 
 import com.udhipe.simpleapplication.login.LoginActivity;
 import com.udhipe.simpleapplication.main.account.AccountFragment;
+import com.udhipe.simpleapplication.main.account.AccountPresenter;
 import com.udhipe.simpleapplication.main.dashboard.DashboardFragment;
 import com.udhipe.simpleapplication.main.partner.PartnerFragment;
 import com.udhipe.simpleapplication.main.stock.StockFragment;
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener, MainContract.MainView {
 
     BottomNavigationView bottomNavigationView;
+
+    AccountPresenter accountPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +76,11 @@ public class MainActivity extends AppCompatActivity implements
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainer, fragment)
                     .commit();
+
+            if (fragment instanceof AccountFragment) {
+                new AccountPresenter((AccountFragment) fragment);
+            }
+
             return true;
         }
         return false;
@@ -91,8 +99,15 @@ public class MainActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
+    // not used
     @Override
     public void showInfo(String infoCode) {
+
+    }
+
+    // not used
+    @Override
+    public void setPresenter(Object presenter) {
 
     }
 }
