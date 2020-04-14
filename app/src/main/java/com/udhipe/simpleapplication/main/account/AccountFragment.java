@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.android.material.textview.MaterialTextView;
 import com.udhipe.simpleapplication.R;
 import com.udhipe.simpleapplication.main.MainContract;
 
@@ -19,7 +20,11 @@ public class AccountFragment extends Fragment implements MainContract.AccountVie
 
     MainContract.AccountPresenter presenter;
 
-    TextView tvAccount;
+    MaterialTextView tvUsername;
+    MaterialTextView tvKtp;
+    MaterialTextView tvEmail;
+    MaterialTextView tvPhone;
+    MaterialTextView tvAddress;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -30,9 +35,17 @@ public class AccountFragment extends Fragment implements MainContract.AccountVie
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        tvAccount = view.findViewById(R.id.tv_Account);
+        initializeView(view);
 
         return view;
+    }
+
+    private void initializeView(View view) {
+        tvUsername = view.findViewById(R.id.tv_username);
+        tvKtp = view.findViewById(R.id.tv_ktp);
+        tvEmail = view.findViewById(R.id.tv_email);
+        tvPhone = view.findViewById(R.id.tv_phone);
+        tvAddress = view.findViewById(R.id.tv_address);
     }
 
     @Override
@@ -52,7 +65,6 @@ public class AccountFragment extends Fragment implements MainContract.AccountVie
 
     @Override
     public void showAccountInfo(String info) {
-        tvAccount.setText(info);
     }
 
     @Override
