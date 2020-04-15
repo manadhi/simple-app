@@ -30,6 +30,5 @@ public class AccountPresenter implements MainContract.AccountPresenter {
 
     @Override
     public void start() {
-        view.showAccountInfo("Hello, this is page account");
     }
 }

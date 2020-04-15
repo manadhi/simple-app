@@ -1,6 +1,7 @@
 package com.udhipe.simpleapplication.main;
 
 import com.udhipe.simpleapplication.BaseContract;
+import com.udhipe.simpleapplication.model.User;
 
 import org.json.JSONObject;
 
@@ -26,9 +27,14 @@ public interface MainContract {
     }
 
     interface AccountInteractor extends MainInteractor {
-        void getAccountData(String token, Listener<JSONObject> listener);
+        void getProfile(String token, Listener<JSONObject> listener);
 
-        void updateAccountData(String token, String username,
-                               String password, int version, Listener<JSONObject> listener);
+        void updateProfile(String token, User user, Listener<JSONObject> listener);
+
+        void createProfile(String token, User user, Listener<JSONObject> listener);
+
+        void getAccount(String token, Listener<JSONObject> listener);
+
+        void updateAccount(String token, User user, Listener<JSONObject> listener);
     }
 }

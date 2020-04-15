@@ -7,6 +7,16 @@ public class User {
     String token;
     String accountId;
 
+    String no_ktp;
+    String email;
+    String phone;
+    String address;
+    String version;
+
+    public User() {
+
+    }
+
     public User(String username, String password, int account_type) {
         this.username = username;
         this.password = password;
@@ -56,5 +66,37 @@ public class User {
 
     public void setAccountId(String accountId) {
         this.accountId = accountId;
+    }
+
+    public String getKtp() {
+        return no_ktp;
+    }
+
+    public void setKtp(String no_ktp) {
+        this.no_ktp = no_ktp;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
