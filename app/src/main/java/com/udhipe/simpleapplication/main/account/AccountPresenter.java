@@ -1,6 +1,7 @@
 package com.udhipe.simpleapplication.main.account;
 
 import com.udhipe.simpleapplication.main.MainContract;
+import com.udhipe.simpleapplication.utility.ConstantManager;
 
 public class AccountPresenter implements MainContract.AccountPresenter {
 
@@ -26,6 +27,11 @@ public class AccountPresenter implements MainContract.AccountPresenter {
     @Override
     public void getAccountInfo() {
 
+    }
+
+    @Override
+    public void editProfile() {
+        view.openPage(ConstantManager.ADDPROFILE);
     }
 
     @Override

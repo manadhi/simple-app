@@ -20,6 +20,8 @@ public interface MainContract {
 
     interface AccountPresenter extends MainPresenter {
         void getAccountInfo();
+
+        void editProfile();
     }
 
     interface MainInteractor extends BaseContract.BaseInteractor {

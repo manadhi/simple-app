@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".addprofile.AddProfileActivity"></activity>
+        <activity
+            android:name=".addprofile.AddProfileActivity"
+            android:screenOrientation="sensorLandscape"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".main.MainActivity"
             android:screenOrientation="sensorLandscape"
