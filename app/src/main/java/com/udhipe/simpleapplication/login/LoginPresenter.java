@@ -61,12 +61,14 @@ public class LoginPresenter implements LoginContract.LoginPresenter {
                     user.setAccountId(data.getString("account_id"));
                     user.setAccountType(data.getInt("account_type"));
 
+                    Log.d("PROFILE", "token : " + user.getToken());
+                    Log.d("PROFILE", "account id : " + user.getAccountId());
+                    Log.d("PROFILE", "account type : " + user.getAccountType());
+
                     Log.d("USERR", "user : " + user.toString());
 
-                    view.saveAccountCredential(data.getString("access_token"),
-                            data.getString("account_id"));
+                    getProfile(user.getToken(), user.getAccountId());
 
-                    view.openPage(ConstantManager.DASHBOARD);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -75,6 +77,22 @@ public class LoginPresenter implements LoginContract.LoginPresenter {
             @Override
             public void onError(String message) {
                 view.showInfo(message);
+            }
+        });
+    }
+
+    private void getProfile(String token, String accountId) {
+        interactor.getProfile(token, new BaseContract.BaseInteractor.Listener<JSONObject>() {
+            @Override
+            public void onSuccess(JSONObject data, String message) {
+                view.saveAccountCredential(token, accountId);
+
+                view.openPage(ConstantManager.DASHBOARD);
+            }
+
+            @Override
+            public void onError(String message) {
+                view.openPage(ConstantManager.ADDPROFILE);
             }
         });
     }

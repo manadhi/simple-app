@@ -11,6 +11,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.udhipe.simpleapplication.R;
 import com.udhipe.simpleapplication.main.MainActivity;
+import com.udhipe.simpleapplication.profile.addprofile.AddProfileActivity;
 import com.udhipe.simpleapplication.register.RegisterActivity;
 import com.udhipe.simpleapplication.utility.ConstantManager;
 import com.udhipe.simpleapplication.model.Preferences;
@@ -53,6 +54,9 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Lo
                 break;
             case ConstantManager.DASHBOARD:
                 intent = new Intent(getBaseContext(), MainActivity.class);
+                break;
+            case ConstantManager.ADDPROFILE:
+                intent = new Intent(getBaseContext(), AddProfileActivity.class);
                 break;
         }
 

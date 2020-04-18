@@ -16,6 +16,8 @@ public interface LoginContract {
 
     interface LoginInteractor extends BaseContract.BaseInteractor {
         void getAccountSession(String username, String password, Listener<JSONObject> listener);
+
+        void getProfile(String token, Listener<JSONObject> listener);
     }
 
 }

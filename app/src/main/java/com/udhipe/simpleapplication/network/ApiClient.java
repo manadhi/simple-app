@@ -35,7 +35,7 @@ public class ApiClient {
                 Request original = chain.request();
 
                 Request request = original.newBuilder()
-                        .header("Authorization", "Application 92f700d86103b6bbbd228ff024f811ea")
+//                        .header("Authorization", "Application 92f700d86103b6bbbd228ff024f811ea")
                         .method(original.method(), original.body())
                         .build();
 

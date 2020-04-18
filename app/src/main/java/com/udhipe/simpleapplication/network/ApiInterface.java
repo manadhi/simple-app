@@ -11,21 +11,24 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface ApiInterface {
 
     // register
+    @Headers("Authorization: Application 92f700d86103b6bbbd228ff024f811ea")
     @POST("accounts/register")
     Call<ResponseBody> createAccount(@Body User user);
 
     // login
+    @Headers("Authorization: Application 92f700d86103b6bbbd228ff024f811ea")
     @POST("auth/token")
     Call<ResponseBody> getToken(@Body User user);
 
     // get profile
     @GET("accounts/me/profiles")
-    Call<ResponseBody> getProfile();
+    Call<ResponseBody> getProfile(@Header("Authorization") String authorization);
 
     // admin - all accounts
     @GET("admin/accounts")
