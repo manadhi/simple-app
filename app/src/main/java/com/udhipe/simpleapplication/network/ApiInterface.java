@@ -15,13 +15,19 @@ import retrofit2.http.POST;
 
 public interface ApiInterface {
 
+    // register
     @POST("accounts/register")
     Call<ResponseBody> createAccount(@Body User user);
 
+    // login
     @POST("auth/token")
     Call<ResponseBody> getToken(@Body User user);
 
+    // get profile
+    @GET("accounts/me/profiles")
+    Call<ResponseBody> getProfile();
 
+    // admin - all accounts
     @GET("admin/accounts")
     Call<Object> getAccount();
 

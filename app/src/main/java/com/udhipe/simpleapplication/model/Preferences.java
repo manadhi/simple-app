@@ -1,4 +1,4 @@
-package com.udhipe.simpleapplication.utility;
+package com.udhipe.simpleapplication.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;

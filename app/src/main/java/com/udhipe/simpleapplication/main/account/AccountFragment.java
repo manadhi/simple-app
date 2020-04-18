@@ -8,29 +8,28 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textview.MaterialTextView;
 import com.udhipe.simpleapplication.R;
-import com.udhipe.simpleapplication.addprofile.AddProfileActivity;
+import com.udhipe.simpleapplication.detailaccount.DetailAccountActivity;
+import com.udhipe.simpleapplication.profile.ProfileActivity;
+import com.udhipe.simpleapplication.profile.addprofile.AddProfileActivity;
 import com.udhipe.simpleapplication.main.MainContract;
-import com.udhipe.simpleapplication.model.User;
 import com.udhipe.simpleapplication.utility.ConstantManager;
+import com.udhipe.simpleapplication.model.Preferences;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class AccountFragment extends Fragment implements MainContract.AccountView {
 
-    MainContract.AccountPresenter presenter;
+    MaterialButton btnAccountDetail;
+    MaterialButton btnProfileDetail;
+    MaterialButton btnLogout;
 
-    MaterialTextView tvUsername;
-    MaterialTextView tvKtp;
-    MaterialTextView tvEmail;
-    MaterialTextView tvPhone;
-    MaterialTextView tvAddress;
-    FloatingActionButton fabEditProfile;
+    MainContract.AccountPresenter presenter;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -47,27 +46,46 @@ public class AccountFragment extends Fragment implements MainContract.AccountVie
     }
 
     private void initializeView(View view) {
-        tvUsername = view.findViewById(R.id.tv_username);
-        tvKtp = view.findViewById(R.id.tv_ktp);
-        tvEmail = view.findViewById(R.id.tv_email);
-        tvPhone = view.findViewById(R.id.tv_phone);
-        tvAddress = view.findViewById(R.id.tv_address);
-        fabEditProfile = view.findViewById(R.id.fabEditProfile);
+        btnAccountDetail = view.findViewById(R.id.btnAccountDetail);
+        btnProfileDetail = view.findViewById(R.id.btnProfileDetail);
+        btnLogout = view.findViewById(R.id.btnLogout);
 
-        fabEditProfile.setOnClickListener(new View.OnClickListener() {
+        btnAccountDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.editProfile();
+                openPage(ConstantManager.ACCOUNT);
             }
         });
+
+        btnProfileDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPage(ConstantManager.PROFILE);
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                doLogout();
+            }
+        });
+    }
+
+    private void doLogout() {
+        Preferences.clearAccountToken(getContext());
+        getActivity().finish();
     }
 
     @Override
     public void openPage(String page) {
         Intent intent = new Intent();
         switch (page) {
-            case ConstantManager.ADDPROFILE:
-                intent = new Intent(getContext(), AddProfileActivity.class);
+            case ConstantManager.PROFILE:
+                intent = new Intent(getContext(), ProfileActivity.class);
+                break;
+            case ConstantManager.ACCOUNT:
+                intent = new Intent(getContext(), DetailAccountActivity.class);
                 break;
         }
 
@@ -82,16 +100,6 @@ public class AccountFragment extends Fragment implements MainContract.AccountVie
     @Override
     public void setPresenter(MainContract.AccountPresenter presenter) {
         this.presenter = presenter;
-    }
-
-    @Override
-    public void showAccountInfo(String info) {
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        presenter.start();
     }
 
 }

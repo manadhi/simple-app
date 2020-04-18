@@ -19,7 +19,7 @@ import com.udhipe.simpleapplication.main.partner.PartnerFragment;
 import com.udhipe.simpleapplication.main.stock.StockFragment;
 import com.udhipe.simpleapplication.main.transaction.TransactionFragment;
 import com.udhipe.simpleapplication.utility.ConstantManager;
-import com.udhipe.simpleapplication.utility.Preferences;
+import com.udhipe.simpleapplication.model.Preferences;
 
 public class MainActivity extends AppCompatActivity implements
         BottomNavigationView.OnNavigationItemSelectedListener, MainContract.MainView {

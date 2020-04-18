@@ -15,7 +15,7 @@ import com.udhipe.simpleapplication.R;
 import com.udhipe.simpleapplication.login.LoginActivity;
 import com.udhipe.simpleapplication.main.MainActivity;
 import com.udhipe.simpleapplication.utility.ConstantManager;
-import com.udhipe.simpleapplication.utility.Preferences;
+import com.udhipe.simpleapplication.model.Preferences;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterContract.RegisterView {
 

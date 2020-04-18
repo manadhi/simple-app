@@ -13,7 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".addprofile.AddProfileActivity"
+            android:name=".detailaccount.DetailAccountActivity"
+            android:screenOrientation="sensorLandscape"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".profile.ProfileActivity"
+            android:screenOrientation="sensorLandscape"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".profile.addprofile.AddProfileActivity"
             android:screenOrientation="sensorLandscape"
             tools:ignore="LockedOrientationActivity" />
         <activity

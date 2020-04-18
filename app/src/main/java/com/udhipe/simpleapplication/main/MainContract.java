@@ -11,7 +11,9 @@ public interface MainContract {
     }
 
     interface AccountView extends MainView<AccountPresenter> {
-        void showAccountInfo(String info);
+//        void showAccountInfo(String info);
+//
+//        void getToken();
     }
 
     interface MainPresenter extends BaseContract.BasePresenter {
@@ -19,9 +21,11 @@ public interface MainContract {
     }
 
     interface AccountPresenter extends MainPresenter {
-        void getAccountInfo();
-
-        void editProfile();
+//        void getAccountInfo();
+//
+//        void editProfile();
+//
+//        void getProfile(String token);
     }
 
     interface MainInteractor extends BaseContract.BaseInteractor {
@@ -29,14 +33,14 @@ public interface MainContract {
     }
 
     interface AccountInteractor extends MainInteractor {
-        void getProfile(String token, Listener<JSONObject> listener);
-
-        void updateProfile(String token, User user, Listener<JSONObject> listener);
-
-        void createProfile(String token, User user, Listener<JSONObject> listener);
-
-        void getAccount(String token, Listener<JSONObject> listener);
-
-        void updateAccount(String token, User user, Listener<JSONObject> listener);
+//        void getProfile(String token, Listener<JSONObject> listener);
+//
+//        void updateProfile(String token, User user, Listener<JSONObject> listener);
+//
+//        void createProfile(String token, User user, Listener<JSONObject> listener);
+//
+//        void getAccount(String token, Listener<JSONObject> listener);
+//
+//        void updateAccount(String token, User user, Listener<JSONObject> listener);
     }
 }
