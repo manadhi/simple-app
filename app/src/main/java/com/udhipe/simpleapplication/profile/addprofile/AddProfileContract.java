@@ -11,10 +11,12 @@ public interface AddProfileContract {
     }
 
     interface AddProfilePresenter extends BaseContract.BasePresenter {
-        void updateProfile(User user);
+        void start(String token);
+
+        void checkInput(String ktp, String phone, String email, String address);
     }
 
     interface AddProfileInteractor extends BaseContract.BaseInteractor {
-        void updateProfileData(User user, Listener<JSONObject> listener);
+        void createProfileData(String token, User user, Listener<JSONObject> listener);
     }
 }

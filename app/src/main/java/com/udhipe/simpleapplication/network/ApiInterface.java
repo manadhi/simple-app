@@ -30,6 +30,10 @@ public interface ApiInterface {
     @GET("accounts/me/profiles")
     Call<ResponseBody> getProfile(@Header("Authorization") String authorization);
 
+    // create profile
+    @POST("accounts/me/profiles")
+    Call<ResponseBody> createProfile(@Header("Authorization") String authorization, @Body User user);
+
     // admin - all accounts
     @GET("admin/accounts")
     Call<Object> getAccount();

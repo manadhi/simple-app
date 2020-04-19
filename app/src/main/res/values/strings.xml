@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simple Application</string>
+    <string name="app_name">Store App</string>
     <string name="app_title">Hola</string>
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
@@ -26,4 +26,9 @@
     <string name="fail_create_account">"create account failed"</string>
     <string name="account_already_exist">"sorry, try another username"</string>
     <string name="connection_problem">"please check your connection"</string>
+    <string name="empty_ktp">please input ktp</string>
+    <string name="empty_phone">please input phone number</string>
+    <string name="empty_email">please input e-mail</string>
+    <string name="empty_address">please input full address</string>
+    <string name="length_ktp">"ktp must be "</string>
 </resources>

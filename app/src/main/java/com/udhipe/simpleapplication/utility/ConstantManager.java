@@ -6,6 +6,7 @@ public class ConstantManager {
     final public static String[] accountTypeList = new String[]{"Agent Reguler", "Agent Premium",
             "Agent Startup", "Reseller", "Merketer"};
     final public static int MINIMUM_CHARACTER_USERNAME = 3;
+    final public static int MINIMUM_CHARACTER_KTP = 16;
     final public static int MINIMUM_CHARACTER_PASSWORD = 8;
     final public static String EMPTY = "";
     final public static String USERNAME = "username";
@@ -20,6 +21,10 @@ public class ConstantManager {
     final public static String REGISTER = "register";
     final public static String CONNECTION = "connection";
     final public static String DASHBOARD = "dashboard";
+    final public static String KTP = "ktp";
+    final public static String PHONE = "phone";
+    final public static String EMAIL = "email";
+    final public static String ADDRESS = "address";
     final public static String INFO_EMPTY_USERNAME = "F" + USERNAME + EMPTY;
     final public static String INFO_MINIMUM_USERNAME = "F" + USERNAME + MINIMUM_CHARACTER_USERNAME;
     final public static String INFO_EMPTY_PASSWORD = "F" + PASSWORD + EMPTY;
@@ -31,6 +36,11 @@ public class ConstantManager {
     final public static String FAIL_CREATE_ACCOUNT = "F" + ACCOUNT;
     final public static String ACCOUNT_ALREADY_EXIST = "F" + ACCOUNT + EXIST;
     final public static String CONNECTION_PROBLEM = "F" + CONNECTION;
+    final public static String INFO_EMPTY_KTP = "F" + KTP + EMPTY;
+    final public static String INFO_MINIMUM_KTP = "F" + KTP + MINIMUM_CHARACTER_KTP;
+    final public static String INFO_EMPTY_PHONE = "F" + PHONE + EMPTY;
+    final public static String INFO_EMPTY_EMAIL = "F" + EMAIL + EMPTY;
+    final public static String INFO_EMPTY_ADDRESS = "F" + ADDRESS + EMPTY;
     final public static int AGENT_REGULER = 2;
     final public static int AGENT_PREMIUM = 3;
     final public static int AGENT_STARTUP = 4;

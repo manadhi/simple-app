@@ -7,11 +7,11 @@ public class User {
     String token;
     String accountId;
 
+    String name;
     String no_ktp;
     String email;
     String phone;
     String address;
-    String version;
 
     public User() {
 
@@ -26,6 +26,14 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public User(String name, String email, String no_ktp, String address, String phone) {
+        this.name = name;
+        this.email = email;
+        this.no_ktp = no_ktp;
+        this.address = address;
+        this.phone = phone;
     }
 
     public String getUsername() {
@@ -98,5 +106,13 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

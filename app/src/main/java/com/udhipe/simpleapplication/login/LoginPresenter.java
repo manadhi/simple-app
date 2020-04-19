@@ -67,6 +67,8 @@ public class LoginPresenter implements LoginContract.LoginPresenter {
 
                     Log.d("USERR", "user : " + user.toString());
 
+                    view.saveAccountCredential(user.getToken(), user.getAccountId());
+
                     getProfile(user.getToken(), user.getAccountId());
 
                 } catch (JSONException e) {
@@ -85,8 +87,6 @@ public class LoginPresenter implements LoginContract.LoginPresenter {
         interactor.getProfile(token, new BaseContract.BaseInteractor.Listener<JSONObject>() {
             @Override
             public void onSuccess(JSONObject data, String message) {
-                view.saveAccountCredential(token, accountId);
-
                 view.openPage(ConstantManager.DASHBOARD);
             }
 
